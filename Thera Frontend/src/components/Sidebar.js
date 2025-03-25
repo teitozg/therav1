@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   MdHome,
   MdDashboard,
@@ -10,7 +10,14 @@ import {
   MdPerson,
   MdLogout,
 } from "react-icons/md";
+import { createClient } from "@supabase/supabase-js";
 import "./Sidebar.css";
+
+// Initialize Supabase client
+const supabase = createClient(
+  process.env.REACT_APP_SUPABASE_URL,
+  process.env.REACT_APP_SUPABASE_ANON_KEY
+);
 
 function SidebarItem({ to, icon: Icon, label }) {
   return (
@@ -24,6 +31,23 @@ function SidebarItem({ to, icon: Icon, label }) {
 }
 
 function Sidebar() {
+  const navigate = useNavigate();
+
+  const handleLogout = async () => {
+    try {
+      // Sign out from Supabase
+      await supabase.auth.signOut();
+
+      // Clear local session
+      localStorage.removeItem("session");
+
+      // Force reload to reset app state
+      window.location.href = "/";
+    } catch (error) {
+      console.error("Error during logout:", error);
+    }
+  };
+
   const menuItems = [
     { path: "/", icon: MdHome, text: "Home" },
     { path: "/dashboard", icon: MdDashboard, text: "Dashboard" },
@@ -59,7 +83,7 @@ function Sidebar() {
       </nav>
 
       {/* Logout */}
-      <button className="logout-button">
+      <button className="logout-button" onClick={handleLogout}>
         <MdLogout />
         <span>Logout</span>
       </button>
