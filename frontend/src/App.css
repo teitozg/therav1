@@ -1,0 +1,90 @@
+.App {
+  display: flex;
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.sidebar {
+  width: 250px;
+  background: white;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid #eee;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.T {
+  background: #0066ff;
+  color: white;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.logo-text {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+nav {
+  flex: 1;
+}
+
+nav a, .bottom-nav a {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  color: #666;
+  text-decoration: none;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+nav a span, .bottom-nav a span {
+  margin-right: 10px;
+}
+
+nav a.active {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.main-content {
+  flex: 1;
+  padding: 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.filters button {
+  margin-right: 10px;
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  background: white;
+  cursor: pointer;
+}
+
+.export-btn {
+  padding: 8px 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: white;
+  cursor: pointer;
+} 

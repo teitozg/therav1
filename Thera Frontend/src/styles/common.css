@@ -1,0 +1,24 @@
+.page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: #fff;
+    border-radius: 12px;
+    padding: 32px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.dashboard-container {
+    margin-top: 24px;
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Add responsive adjustments */
+@media (max-width: 1400px) {
+    .page-container {
+        max-width: 100%;
+    }
+} 

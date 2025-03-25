@@ -1,0 +1,40 @@
+.app-container {
+    display: flex;
+    min-height: 100vh;
+    position: relative;
+}
+
+.main-content {
+    flex: 1;
+    margin-left: 240px; /* Same as sidebar width */
+    padding: 32px;
+    background-color: #f8f9fa;
+    width: calc(100% - 240px);
+    box-sizing: border-box;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+    min-width: 768px; /* Prevent content from becoming too narrow */
+}
+
+/* Update media query for better responsive behavior */
+@media (max-width: 1024px) {
+    .main-content {
+        margin-left: 240px;
+        width: calc(100% - 240px);
+        min-width: 600px; /* Smaller minimum width for tablets */
+    }
+}
+
+/* Add horizontal scrolling to body when screen is too small */
+@media (max-width: 840px) {
+    body {
+        overflow-x: auto;
+    }
+    
+    .app-container {
+        min-width: 840px; /* Minimum width to prevent squishing */
+    }
+
+    .main-content {
+        min-width: 600px;
+    }
+} 
